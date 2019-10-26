@@ -1,23 +1,32 @@
 import com.lib.calculator.Calculator;
 import com.lib.i.calculator.ICalculator;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
     static private void playCalculator(ICalculator calculator) {
-        System.out.println("Choose option:\n1. Add\n2.Substract\n3.Multiply\n4.Divide\n0.Exit");
+        System.out.println("Choose option:\n1. Add\n2. Substract\n3. Multiply\n4. Divide\n0. Exit");
         Scanner scanner = new Scanner(System.in);
-        short option = scanner.nextShort();
+        short option;
+        double a, b;
+        try {
+            option = scanner.nextShort();
 
-        if (option == 0) {
+            if (option == 0) {
+                System.out.println("Exiting Program...");
+                return;
+            }
+
+            System.out.println("Give number a:");
+            a = scanner.nextDouble();
+            System.out.println("Give number b:");
+            b = scanner.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("Incorrect Input\nExiting program...");
             return;
         }
-
-        System.out.println("Give number a:");
-        double a = scanner.nextDouble();
-        System.out.println("Give number b:");
-        double b = scanner.nextDouble();
 
         switch (option) {
             case 1:
@@ -32,12 +41,13 @@ public class Main {
             case 4:
                 System.out.println(calculator.divide(a, b));
                 break;
+            default:
+                System.out.println("There is no such option...\nExiting Program...");
 
         }
     }
 
     public static void main(String[] args) {
-        System.out.println("Im the Main");
         ICalculator c = new Calculator();
         playCalculator(c);
     }
