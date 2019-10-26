@@ -1,0 +1,11 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+target/
+out/
+
+# MAVEN
+log/
+
+
