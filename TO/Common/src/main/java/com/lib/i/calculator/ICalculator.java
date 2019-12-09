@@ -1,6 +1,6 @@
 package com.lib.i.calculator;
 
-public interface ICalculator {
+public interface ICalculator extends IPlug {
     double add(double a, double b);
     double subtract(double a, double b);
     double multiply(double a, double b);

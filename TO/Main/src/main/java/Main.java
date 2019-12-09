@@ -1,4 +1,4 @@
-import com.lib.calculator.Calculator;
+import com.lib.i.calculator.Calculator;
 import com.lib.i.calculator.ICalculator;
 
 import java.util.InputMismatchException;
@@ -49,6 +49,7 @@ public class Main {
 
     public static void main(String[] args) {
         ICalculator c = new Calculator();
-        playCalculator(c);
+        System.out.println(c.sqrt(25));
+        //playCalculator(c);
     }
 }
