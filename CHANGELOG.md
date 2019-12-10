@@ -1,3 +1,7 @@
+## [0.0.2] 10-12-2019
+### Added
+- Class loader is loading classes with function for calculator
+
 ## [0.0.1] 01-11-2019
 ### Added
 - Two modules which are building jar libraries.

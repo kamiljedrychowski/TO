@@ -10,13 +10,11 @@
     <version>1.0</version>
 
     <modules>
-        <module>Common</module>
         <module>libCalculator</module>
         <module>Main</module>
     </modules>
 
     <properties>
-        <!-- Encoding information -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

@@ -11,12 +11,12 @@
 
     <artifactId>libCalculator</artifactId>
     <version>1.0</version>
-
     <dependencies>
         <dependency>
-            <groupId>to</groupId>
-            <artifactId>Common</artifactId>
-            <version>1.0</version>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
