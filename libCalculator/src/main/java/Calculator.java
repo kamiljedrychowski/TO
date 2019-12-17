@@ -18,6 +18,22 @@ public class Calculator {
         findClassFiles();
     }
 
+    private double add (double a, double b){ return a + b; }
+    private double subs (double a, double b){ return a - b; }
+    private double mult (double a, double b){ return a * b; }
+    private double div (double a, double b){
+        try {
+            if (b == 0) {
+                throw new IllegalArgumentException("Divide by 0");
+            }
+            return a / b;
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return 0;
+        }
+    }
+
+
     private void findClassFiles() {
         File dir = new File(pluginsPath);
         try {
@@ -52,23 +68,41 @@ public class Calculator {
 
     public void run() {
         while (true) {
-            int i = 0;
-            for (; i < listOfReadClass.size(); i++) {
-                System.out.printf("%d. %s\n", i, listOfReadClass.get(i).getClass().getName());
+            System.out.println("Choose option:\n0. Add\n1. Substract\n2. Multiply\n3. Divide");
+            int i = 4;
+            for (; i < listOfReadClass.size() + 4; i++) {
+                System.out.printf("%d. %s\n", i, listOfReadClass.get(i-4).getClass().getName());
             }
             System.out.printf("%d. %s\n", i + 1, "Exit");
             Scanner scanner = new Scanner(System.in);
-
-            System.out.println("Choose Your operation:");
             int o = scanner.nextInt();
-            System.out.println("Put in a:");
-            double a = scanner.nextDouble();
-            System.out.println("Put in b:");
-            double b = scanner.nextDouble();
+            if(o == i + 1 )
+                break;
 
-            if (o < listOfReadClass.size() && o >= 0) {
-                System.out.println(listOfReadClass.get(o).operation(a, b));
-            } else if (o == i + 1) {
+            System.out.println("Put in one or two numbers:");
+            double a = scanner.nextDouble();
+            double b = scanner.nextDouble();
+            switch (o) {
+                case 0:
+                    System.out.println(add(a, b));
+                    break;
+                case 1:
+                    System.out.println(subs(a, b));
+                    break;
+                case 2:
+                    System.out.println(mult(a, b));
+                    break;
+                case 3:
+                    System.out.println(div(a, b));
+                    break;
+
+            }
+            if (o < listOfReadClass.size() + 4 && o >= 4) {
+                System.out.println(listOfReadClass.get(o-4).operation(a, b));
+            }
+            else if (o < 4 && o >= 0)
+                continue;
+            else {
                 break;
             }
         }

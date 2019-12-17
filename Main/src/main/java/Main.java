@@ -7,7 +7,7 @@ public class Main {
 
         if(pathToClasses.equals("")){
             System.out.println("Using default path");
-            pathToClasses = "D:\\Data\\Desktop\\Calculator\\TO\\Main\\src\\class\\";
+            pathToClasses = "/Users/jabko/Documents/studies/to/toNasze2/TO/plugins/class/";
         }
 
         Calculator c = new Calculator(pathToClasses);
