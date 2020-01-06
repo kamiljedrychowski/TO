@@ -13,7 +13,7 @@ public class Calculator {
     private String pluginsPath;
     private List<ICalculatorFunction> listOfReadClass = new ArrayList<>();
 
-    public Calculator(String pluginsPath) {
+    public Calculator(String pluginsPath) throws IllegalAccessException, InstantiationException, MalformedURLException, ClassNotFoundException {
         this.pluginsPath = pluginsPath;
         findClassFiles();
     }
@@ -21,22 +21,22 @@ public class Calculator {
     private double add (double a, double b){ return a + b; }
     private double subs (double a, double b){ return a - b; }
     private double mult (double a, double b){ return a * b; }
-    private double div (double a, double b){
-        try {
+    private double div (double a, double b)  throws IllegalArgumentException {
+//        try {
             if (b == 0) {
                 throw new IllegalArgumentException("Divide by 0");
             }
             return a / b;
-        } catch (IllegalArgumentException e) {
-            System.err.println(e.getMessage());
-            return 0;
-        }
+//        } catch (IllegalArgumentException e) {
+//            System.err.println(e.getMessage());
+//            return 0;
+//        }
     }
 
 
-    private void findClassFiles() {
+    private void findClassFiles() throws InstantiationException, IllegalAccessException, MalformedURLException, ClassNotFoundException {
         File dir = new File(pluginsPath);
-        try {
+//        try {
             for (File fileEntry : Objects.requireNonNull(dir.listFiles())) {
                 if (FilenameUtils.getExtension(fileEntry.getName()).equals("class")) {
                     System.out.print("Loading class: ");
@@ -46,24 +46,24 @@ public class Calculator {
                     System.out.print("There is no class");
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(e.toString());
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println(e.toString());
+//        }
     }
 
-    private void loadClass(String nameClass) throws IllegalAccessException, InstantiationException {
+    private void loadClass(String nameClass) throws IllegalAccessException, InstantiationException, MalformedURLException, ClassNotFoundException {
         File file = new File(pluginsPath);
-        try {
+//        try {
             URL url = file.toURI().toURL();
             URL[] urls = new URL[]{url};
             ClassLoader cl = new URLClassLoader(urls);
             Class cls = cl.loadClass(nameClass);
             listOfReadClass.add((ICalculatorFunction) cls.newInstance());
-        } catch (MalformedURLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            System.out.println(e.toString());
-        }
+//        } catch (MalformedURLException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//            System.out.println(e.toString());
+//        }
     }
 
     public void run() {
