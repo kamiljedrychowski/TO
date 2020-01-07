@@ -18,20 +18,8 @@ public class Calculator {
         findClassFiles();
     }
 
-    private double add (double a, double b){ return a + b; }
-    private double subs (double a, double b){ return a - b; }
-    private double mult (double a, double b){ return a * b; }
-    private double div (double a, double b)  throws IllegalArgumentException {
-//        try {
-            if (b == 0) {
-                throw new IllegalArgumentException("Divide by 0");
-            }
-            return a / b;
-//        } catch (IllegalArgumentException e) {
-//            System.err.println(e.getMessage());
-//            return 0;
-//        }
-    }
+    private Factory Factory = new Factory();
+    private Product Calc = Factory.create();
 
 
     private void findClassFiles() throws InstantiationException, IllegalAccessException, MalformedURLException, ClassNotFoundException {
@@ -84,16 +72,16 @@ public class Calculator {
             double b = scanner.nextDouble();
             switch (o) {
                 case 0:
-                    System.out.println(add(a, b));
+                    System.out.println(Calc.add(a, b));
                     break;
                 case 1:
-                    System.out.println(subs(a, b));
+                    System.out.println(Calc.subs(a, b));
                     break;
                 case 2:
-                    System.out.println(mult(a, b));
+                    System.out.println(Calc.mult(a, b));
                     break;
                 case 3:
-                    System.out.println(div(a, b));
+                    System.out.println(Calc.div(a, b));
                     break;
 
             }

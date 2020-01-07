@@ -7,5 +7,5 @@ out/
 
 # MAVEN
 log/
-
+log4j.txt
 
