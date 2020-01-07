@@ -1,5 +1,6 @@
 import org.apache.log4j.Logger;
 
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Main {
@@ -13,10 +14,18 @@ public class Main {
             System.out.println("Using default path");
 //            pathToClasses = "/Users/jabko/Documents/studies/to/toNasze2/TO/plugins/class/";
             pathToClasses = "D:\\Data\\Desktop\\CCC\\TO\\plugins\\class\\";
+//            pathToClasses = "D:\\Data\\Desktop\\CCC\\TO\\";
         }
         try{
             Calculator c = new Calculator(pathToClasses);
-            c.run();
+//            c.run();
+
+            System.out.println(c.add(2,3));
+            System.out.println(c.plugins(0,4,1));
+
+
+
+
         } catch(Exception e){
             logger.debug(e.getMessage());
             for (StackTraceElement a: e.getStackTrace()

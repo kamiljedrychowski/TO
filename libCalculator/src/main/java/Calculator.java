@@ -30,8 +30,6 @@ public class Calculator {
                     System.out.print("Loading class: ");
                     loadClass(FilenameUtils.removeExtension(fileEntry.getName()));
                     System.out.println(fileEntry.getName());
-                } else {
-                    System.out.print("There is no class");
                 }
             }
 //        } catch (Exception e) {
@@ -95,4 +93,27 @@ public class Calculator {
             }
         }
     }
+
+    // API
+    public double add(double a, double b){
+        return Calc.add(a,b);
+    }
+    public double substract(double a, double b){
+        return Calc.subs(a,b);
+    }
+    public double multiply(double a, double b){
+        return Calc.mult(a,b);
+    }
+    public double divide(double a, double b) throws IllegalArgumentException{
+        return Calc.div(a,b);
+    }
+    public double plugins(int n, double a, double ... b) throws Exception {
+        if(n>listOfReadClass.size()){
+            throw new Exception("There is no fuck given about your function number");
+        }
+        System.out.println(listOfReadClass.get(n).getClass().getName());
+        return listOfReadClass.get(n).operation(a, b);
+    }
+
+
 }
