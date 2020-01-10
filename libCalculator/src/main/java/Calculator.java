@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Calculator {
+public class Calculator implements ICalculatorApi{
     private String pluginsPath;
     private List<ICalculatorFunction> listOfReadClass = new ArrayList<>();
 
@@ -109,7 +109,7 @@ public class Calculator {
     }
     public double plugins(int n, double a, double ... b) throws Exception {
         if(n>listOfReadClass.size()){
-            throw new Exception("There is no fuck given about your function number");
+            throw new Exception("There is function at this number");
         }
         System.out.println(listOfReadClass.get(n).getClass().getName());
         return listOfReadClass.get(n).operation(a, b);
