@@ -1,3 +1,5 @@
+package com.calculator;
+
 public interface ICalculatorApi {
 
     double add(double a, double b);

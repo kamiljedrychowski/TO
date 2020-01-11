@@ -1,3 +1,5 @@
+package com.calculator;
+
 public interface IProduct {
     double add(double a, double b);
     double subs(double a, double b);

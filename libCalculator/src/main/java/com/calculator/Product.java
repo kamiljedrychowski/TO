@@ -1,3 +1,5 @@
+package com.calculator;
+
 class Product implements IProduct{
     public double add(double a, double b){ return a + b; }
     public double subs(double a, double b){ return a - b; }
