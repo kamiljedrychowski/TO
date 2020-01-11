@@ -1,5 +1,6 @@
 package com.calculator;
 
+import lombok.Getter;
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
@@ -13,6 +14,7 @@ import java.util.Scanner;
 
 public class Calculator implements ICalculatorApi{
     private String pluginsPath;
+    @Getter
     private List<ICalculatorFunction> listOfReadClass = new ArrayList<>();
 
     public Calculator(String pluginsPath) throws IllegalAccessException, InstantiationException, MalformedURLException, ClassNotFoundException {
