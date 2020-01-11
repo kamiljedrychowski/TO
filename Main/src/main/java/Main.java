@@ -11,12 +11,12 @@ public class Main {
         if(pathToClasses.equals("")){
             System.out.println("Using default path");
 //            pathToClasses = "/Users/jabko/Documents/studies/to/toNasze2/TO/plugins/class/";
-            pathToClasses = "D:\\Data\\Desktop\\CCC\\TO\\plugins\\class\\";
+            pathToClasses = "D:\\Data\\Desktop\\TechnologieObiektowe\\TO\\plugins\\class\\";
         }
         try{
             Calculator c = new Calculator(pathToClasses);
 //            c.run();
-//
+
             System.out.println(c.add(2,3));
             System.out.println(c.plugins(0,4,1));
 
